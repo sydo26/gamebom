@@ -9,12 +9,12 @@ import skills.SkillRunnable;
 
 public class Kirito extends BasePlayer {
 
-  protected Passive criticalHit;
-
   public Kirito(String name) {
-    super("🧔", name, null, null);
+    super("👾", name, null, null);
     initSkills();
   }
+
+  protected Passive criticalHit;
 
   protected void initSkills() {
     this.criticalHit = new Passive("ataque crítico",
@@ -47,7 +47,12 @@ public class Kirito extends BasePlayer {
       this.addLog(this.criticalHit.toString());
     } else
       super.attackTo(player);
+  }
 
+  @Override
+  public void receiveDamage(Player attacker, double damage) {
+    // TODO Auto-generated method stub
+    super.receiveDamage(attacker, damage);
   }
 
 }

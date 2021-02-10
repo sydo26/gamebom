@@ -44,7 +44,7 @@ public class Game {
       }
 
       if (value.equalsIgnoreCase("Y")) {
-        System.out.println("\n\nRound " + round++ + ":\n");
+        System.out.println("\n\nRound " + round + ":\n");
         new Round(this.players);
         alives = 0;
         for (Player player : this.players) {
@@ -58,7 +58,7 @@ public class Game {
           break;
         }
         if (firstExecution) {
-          System.out.println("\nResultado pós round " + round + ":");
+          System.out.println("\nResultado pós round " + round++ + ":");
           showPlayers();
         }
       } else if (value.equalsIgnoreCase("N"))
