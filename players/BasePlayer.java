@@ -29,6 +29,16 @@ public abstract class BasePlayer implements Player {
     return logs;
   }
 
+  @Override
+  public double getInitDamage() {
+    return this.initDamage;
+  }
+
+  @Override
+  public double getInitLife() {
+    return this.initLife;
+  }
+
   public void addLog(String log) {
     this.logs.add(log);
   }

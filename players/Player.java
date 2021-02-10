@@ -12,6 +12,10 @@ public interface Player {
 
   public List<String> getLogs();
 
+  public double getInitLife();
+
+  public double getInitDamage();
+
   public String getUnicode();
 
   public boolean isAlive();
