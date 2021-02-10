@@ -23,7 +23,7 @@ public class Kirito extends BasePlayer {
           @Override
           public Map<String, Object> abilityTrigger(Player player, Player target) {
             Map<String, Object> map = new TreeMap<>();
-            double percent = (new Random()).nextDouble() * 50 + 50;
+            double percent = (new Random()).nextDouble() * 20 + 30;
             map.put("percent", percent + 100);
             map.put("player", player.getName());
             map.put("target", target.getName());
@@ -34,7 +34,7 @@ public class Kirito extends BasePlayer {
 
           @Override
           public boolean existCondition(Player player, Player target) {
-            return (new Random()).nextInt(101) < 50;
+            return (new Random()).nextInt(101) < 20;
           }
 
         });
