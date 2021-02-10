@@ -7,6 +7,7 @@ public class Main {
 
     game.addPlayer(new Kirito("Kirito"));
     game.addPlayer(new Mercenary("João"));
+    game.addPlayer(new Mercenary("Bruno"));
 
     game.start();
   }

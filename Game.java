@@ -67,6 +67,7 @@ public class Game {
     }
 
     showPlayers();
+    System.out.println();
     if (alives == 1) {
       Player winner = null;
       for (Player player : players) {

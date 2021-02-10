@@ -1,25 +1,20 @@
 
 import java.util.List;
-import java.util.Random;
 
 import players.Player;
 
 public class Round {
   public Round(List<Player> players) {
-    Random random = new Random();
-    for (Player player : players) {
-      if (player.isAlive()) {
-        Player target;
-        while (true) {
-          target = players.get(random.nextInt(players.size()));
-          if (!target.getName().equalsIgnoreCase(player.getName()))
-            break;
+    for (int p = 0; p < players.size(); p++) {
+      for (int t = 0; t < players.size(); t++) {
+        if (players.get(p).isAlive() && t != p) {
+          System.out.println("[ " + players.get(p).getName() + " ⚔ " + players.get(t).getName() + " ]");
+          double oldLifeTarget = players.get(t).getLife();
+          double oldLifePlayer = players.get(p).getLife();
+          players.get(p).attackTo(players.get(t));
+          players.get(p).print(true, players.get(t), oldLifeTarget - players.get(t).getLife(),
+              oldLifePlayer - players.get(p).getLife());
         }
-        System.out.println("[ " + target.getName() + " ⚔ " + player.getName() + " ]");
-        double oldLifeTarget = target.getLife();
-        double oldLifePlayer = player.getLife();
-        player.attackTo(target);
-        player.print(true, target, oldLifeTarget - target.getLife(), oldLifePlayer - player.getLife());
       }
     }
   }
