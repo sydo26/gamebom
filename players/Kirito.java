@@ -9,7 +9,7 @@ import skills.SkillRunnable;
 
 public class Kirito extends BasePlayer {
 
-  protected Passive critical_hit;
+  protected Passive criticalHit;
 
   public Kirito(String name) {
     super("🧔", name, null, null);
@@ -17,14 +17,14 @@ public class Kirito extends BasePlayer {
   }
 
   protected void initSkills() {
-    this.critical_hit = new Passive("ataque crítico",
+    this.criticalHit = new Passive("ataque crítico",
         "fez com que o jogador {player} desse um crítico de {percent}% em {target}.", this, new SkillRunnable() {
 
           @Override
           public Map<String, Object> abilityTrigger(Player player, Player target) {
             Map<String, Object> map = new TreeMap<>();
-            double percent = (new Random()).nextDouble() * 100;
-            map.put("percent", percent);
+            double percent = (new Random()).nextDouble() * 50 + 50;
+            map.put("percent", percent + 100);
             map.put("player", player.getName());
             map.put("target", target.getName());
 
@@ -42,9 +42,9 @@ public class Kirito extends BasePlayer {
 
   @Override
   public void attackTo(Player player) {
-    if (this.critical_hit.existCondition(player)) {
-      this.critical_hit.abilityTrigger(player);
-      this.addLog(this.critical_hit.toString());
+    if (this.criticalHit.existCondition(player)) {
+      this.criticalHit.abilityTrigger(player);
+      this.addLog(this.criticalHit.toString());
     } else
       super.attackTo(player);
 
