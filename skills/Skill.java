@@ -46,6 +46,8 @@ public class Skill {
   }
 
   public String replaceAllValues(String string) {
+    String randomHash = "125912809581298491289581";
+    string = string.replaceAll("%", randomHash);
     for (Map.Entry<String, Object> value : this.getValues().entrySet()) {
       if (value.getValue() instanceof Double) {
         while (string.contains("{" + value.getKey() + "}")) {
@@ -55,10 +57,12 @@ public class Skill {
       } else {
         while (string.contains("{" + value.getKey() + "}")) {
           string = string.replace("{" + value.getKey() + "}", "%s");
-          string = String.format(string, String.valueOf(value.getKey()));
+          string = String.format(string, String.valueOf(value.getValue()));
         }
       }
     }
+
+    string = string.replaceAll(randomHash, "%");
 
     return string;
   }
