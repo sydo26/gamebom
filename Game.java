@@ -3,7 +3,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
-
 import players.Player;
 
 public class Game {
